@@ -30,7 +30,6 @@ TEST_CASE("Test name", "[Tag1][Tag2]...")
 
 	ListNode *result = s.addTwoNumbers(l1, l2);
 
-	std::cout << result->next->next->val << std::endl;
 	REQUIRE( (result->val == 7) );
 	REQUIRE( (result->next->val == 0) );
 	REQUIRE( (result->next->next->val == 8) );
