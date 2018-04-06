@@ -1,18 +1,3 @@
-#DO NOT MODIFY ME!!!
 
-CXX := g++
-CXXFLAGS := -std=c++14
+include ../template/Makefile.template
 
-TARGET := solution
-CATCH := ../catch/catch.hpp
-
-.PHONY: test clean
-
-$(TARGET): TEST.cpp $(TARGET).cpp $(CATCH)
-	$(CXX) $(CXXFLAGS) $< -o $(TARGET)
-
-test: $(TARGET)
-	./$(TARGET)
-
-clean:
-	-rm -f $(TARGET)
