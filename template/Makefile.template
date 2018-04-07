@@ -4,12 +4,12 @@ CXX := g++
 CXXFLAGS := -std=c++14
 
 TARGET := solution
-CATCH := ../catch/catch.hpp
+MAIN := ../catch/main.o
 
 .PHONY: test clean
 
-$(TARGET): TEST.cpp $(TARGET).cpp $(CATCH)
-	$(CXX) $(CXXFLAGS) $< -o $(TARGET)
+$(TARGET): TEST.cpp $(TARGET).cpp $(MAIN)
+	$(CXX) $(CXXFLAGS) TEST.cpp $(MAIN) -o $@
 
 test: $(TARGET)
 	./$(TARGET)
