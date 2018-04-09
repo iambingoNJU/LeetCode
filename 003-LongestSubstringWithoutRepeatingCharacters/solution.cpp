@@ -1,11 +1,13 @@
 
 #include <set>
+#include <memory.h>
 using namespace std;
 
 class Solution {
 public:
 	// Edit your solution code here
-	// version 1, O(n^2), n = s.length()
+	// version 1, O(n^3), n = s.length()
+	/*
 	int lengthOfLongestSubstring(string s) {
 		int max = 0;
 		int len = s.length();
@@ -17,6 +19,25 @@ public:
 					break;
 				} else {
 					charset.insert(s[j]);
+				}
+			}
+			max = max > (j - i) ? max : (j - i);
+		}
+		return max;
+	}
+	*/
+
+	// version 2, O(n^2)
+	int lengthOfLongestSubstring(string s) {
+		int max = 0, len = s.length();
+		for (int i = 0; i < len; i ++) {
+			bool map[256] = { false };
+			int j;
+			for (j = i; j < len; j ++) {
+				if (map[s[j]]) {
+					break;
+				} else {
+					map[s[j]] = true;
 				}
 			}
 			max = max > (j - i) ? max : (j - i);
