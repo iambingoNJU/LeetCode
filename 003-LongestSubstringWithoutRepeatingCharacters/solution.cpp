@@ -28,6 +28,7 @@ public:
 	*/
 
 	// version 2, O(n^2)
+	/*
 	int lengthOfLongestSubstring(string s) {
 		int max = 0, len = s.length();
 		for (int i = 0; i < len; i ++) {
@@ -35,6 +36,25 @@ public:
 			int j;
 			for (j = i; j < len; j ++) {
 				if (map[s[j]]) {
+					break;
+				} else {
+					map[s[j]] = true;
+				}
+			}
+			max = max > (j - i) ? max : (j - i);
+		}
+		return max;
+	}
+	*/
+
+	// version 3, O(n)
+	int lengthOfLongestSubstring(string s) {
+		bool map[256] = { false };
+		int max = 0, j = 0, len = s.length();
+		for (int i = 0; i < len && j < len; i ++) {
+			for (; j < len; j ++) {
+				if (map[s[j]]) {
+					map[s[i]] = false;
 					break;
 				} else {
 					map[s[j]] = true;
