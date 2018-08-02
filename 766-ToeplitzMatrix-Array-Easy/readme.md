@@ -41,3 +41,4 @@ What if the matrix is so large that you can only load up a partial row into the 
 
 ## Solution
 
+其实并不一定要按照对角线的顺序来遍历矩阵，直接按顺序遍历就行了。但是实际的效果就是对角线遍历执行比顺序变量要快，原因可能就是对角线遍历时对矩阵要求较高，大多数情况下可能很快就返回false了。
