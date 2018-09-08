@@ -1,7 +1,8 @@
 #DO NOT MODIFY ME!!!
 
 CXX := g++
-CXXFLAGS := -std=c++14
+GDB := gdb
+CXXFLAGS := -std=c++14 -g
 
 TARGET := solution
 MAIN := ../catch/main.o
@@ -13,6 +14,9 @@ $(TARGET): TEST.cpp $(TARGET).cpp $(MAIN)
 
 test: $(TARGET)
 	./$(TARGET)
+
+debug: $(TARGET)
+	$(GDB) $(TARGET)
 
 clean:
 	-rm -f $(TARGET)
