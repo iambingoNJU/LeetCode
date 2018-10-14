@@ -13,7 +13,7 @@ public:
 			index[nums[i]].push_back(i);
 		}
 
-		int degree = 1, slen = 1;
+		int degree = 1, slen = 0;
 		for (int i = 0; i < 50000; i ++) {
 			if (index[i].size() > degree) {
 				slen = *max_element(index[i].begin(), index[i].end()) - 
