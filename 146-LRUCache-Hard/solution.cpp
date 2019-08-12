@@ -34,6 +34,7 @@ public:
 		if (cnt++ >= maxSize) {
 			data.erase(age.back());
 			age.pop_back();
+			cnt --;
 		}
 		age.push_front(key);
 		data[key] = make_pair(value, age.begin());
